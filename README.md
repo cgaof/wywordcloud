@@ -2,7 +2,7 @@
 * 基于 js2wordcloud, wordcloud2 进行修改来满足 项目需求, 进一步使用可以 了解 js2wordcloud, wordcloud2
 * 添加 图形背景 isShowBackShape 控制是否显示图形背景
 * 解决 文字不清晰问题  div(包含canvas父类，设置zoom:0.5)
-* 类似nuxtjs 工程中 引用图片 用 require 不然路径会用问题 例如：require('~/static/womanIcon.png')
+* 类似nuxtjs 工程中 引用图片 用 require 不然路径会用问题 例如：imageShape: require('~/static/womanIcon.png')
   
 
 ## Installation
@@ -52,7 +52,7 @@ wc.setOption({
 
 （4）fontWeight：字体粗细，包含‘normal’，‘bold’以及‘600’；；
 
-（5）color：字体颜色，可以选择‘random-dark’以及‘random-light’，其实就是颜色色系；
+（5）color：字体颜色，可以选择‘random-dark’以及‘random-light’，其实就是颜色色系,也可以使用 回调函数 对每个词语 进行颜色选择 callback(word, weight, fontSize, distance, theta)；
 
 （6）backgroundColor：背景颜色，支持R语言中的常用颜色，如‘gray’，‘blcak’，但是还支持不了更加具体的颜色选择，如‘gray20’；
 
