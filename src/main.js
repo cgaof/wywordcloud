@@ -312,7 +312,7 @@ function _renderShape(option) {
             bctx.drawImage(img, 0, 0, cw, ch);
         }
         console.log(option.imageShape, ' options.imageShape');
-        img.src = option.imageShape;
+        img.src = option.imageShapeColor ||  option.imageShape;
     }
 
 }

@@ -3,7 +3,8 @@
 * 添加 图形背景 isShowBackShape 控制是否显示图形背景
 * 解决 文字不清晰问题  div(包含canvas父类，设置zoom:0.5)
 * 类似nuxtjs 工程中 引用图片 用 require 不然路径会用问题 例如：imageShape: require('~/static/womanIcon.png')
-  
+* 不是黑色的背景 用 imageShapeColor , 需要imageShapeColor 和  imageShape 形状一样， imageShape 必传(需要背景的情况)
+
 
 ## Installation
 
@@ -75,6 +76,7 @@ wc.setOption({
     {
         // ...
         imageShape: 'https://example.com/images/shape.png',     // 提供一张图片，根据其形状进行词云渲染，默认为null
+        imageShapeColor: 'https://example.com/images/shape.png',   // 提供一张图片，根据其形状进行词云渲染，不是黑色的背景
         fontSizeFactor: 0.1,                                    // 当词云值相差太大，可设置此值进字体行大小微调，默认0.1
         maxFontSize: 60,                                        // 最大fontSize，用来控制weightFactor，默认60
         minFontSize: 12,                                        // 最小fontSize，用来控制weightFactor，默认12
