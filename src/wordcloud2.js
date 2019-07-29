@@ -154,7 +154,6 @@ if (!window.clearImmediate) {
   };
 
   var WordCloud = function WordCloud(elements, options) {
-    console.log('WordCloud2.js', '大概157行', elements, options);
 
     if (!isSupported) {
       return;
@@ -174,7 +173,6 @@ if (!window.clearImmediate) {
         throw 'You must pass valid HTML elements, or ID of the element.';
       }
     });
-    console.log(elements, 'elements 大概177行');
 
     /* Default values to be overwritten by options object */
     var settings = {
@@ -222,7 +220,6 @@ if (!window.clearImmediate) {
         }
       }
     }
-    console.log(settings, 'settings 大概225行');
 
     /* Convert weightFactor into a function */
     if (typeof settings.weightFactor !== 'function') {
@@ -239,8 +236,6 @@ if (!window.clearImmediate) {
         /* falls through */
         default:
           // 'circle' is the default and a shortcut in the code loop.
-          console.log('shape 大概242行', settings.shape);
-
           settings.shape = 'circle';
           break;
 
@@ -391,11 +386,9 @@ if (!window.clearImmediate) {
         }
         var eventX = clientX - rect.left;
         var eventY = clientY - rect.top;
-        // console.log(eventX, canvas.width, rect.width,  g, 'infoGrid');
         var dpr = window.devicePixelRatio || 1;
-        var x = Math.floor(eventX * ((canvas.width / rect.width) || 1) / g) + dpr;
-        var y = Math.floor(eventY * ((canvas.height / rect.height) || 1) / g)  + dpr*dpr;
-        // console.log(eventX, canvas.width, rect.width, x, y, g, 'infoGrid');
+        var x = Math.floor(eventX * ((canvas.width / rect.width) || 1) / g) + 2;
+        var y = Math.floor(eventY * ((canvas.height / rect.height) || 1) / g)  + 4;
         return infoGrid[x][y];
       };
 
@@ -493,7 +486,6 @@ if (!window.clearImmediate) {
       // and size < minSize means we cannot draw the text.
       var debug = false;
       var fontSize = settings.weightFactor(weight);
-      console.log('fontSize', fontSize);
       if (fontSize <= settings.minSize) {
         return false;
       }
@@ -759,8 +751,6 @@ if (!window.clearImmediate) {
           var transformRule = '';
           transformRule = 'rotate(' + (- rotateDeg / Math.PI * 180) + 'deg) ';
           if (info.mu !== 1) {
-            console.log('90');
-            
             transformRule +=
               'translateX(-' + (info.fillTextWidth / 4) + 'px) ' +
               'scale(' + (1 / info.mu) + ')';

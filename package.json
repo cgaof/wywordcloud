@@ -1,6 +1,6 @@
 {
   "name": "wywordcloud",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "wy word cloud dp",
   "main": "src/main.js",
   "author": "cgf",

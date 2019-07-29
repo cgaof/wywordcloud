@@ -72,8 +72,6 @@ export default class Wywordcloud {
         _sortWorldCloud(this._option);
 
         if (this._option && /\.(jpg|png)$/.test(this._option.imageShape)) {
-            console.log('img', '《《 75 行 左右》》');
-
             _imageShape.call(this, this._option)
         } else if (this._option.shape === 'circle') {
             _circle.call(this, this._option)
@@ -81,6 +79,7 @@ export default class Wywordcloud {
             _renderShape.call(this, this._option)
         }
     }
+    
     /**
      * 事件绑定
      * @todo
@@ -134,8 +133,6 @@ export default class Wywordcloud {
     }
 
     _init() {
-        console.log('this._container.clientWidth 大概137行', this._container.clientWidth);
-
         let width = this._container.clientWidth;
         let height = this._container.clientHeight;
         this._container.innerHTML = ''
@@ -165,9 +162,6 @@ export default class Wywordcloud {
         this._canvas = window.document.createElement('canvas')
         this._canvas.width = width
         this._canvas.height = height
-        // this._canvas.style.width = width * 20
-        // this._canvas.style.height= height * 20
-        console.log(this._canvas, 'this._canvas');
         this._wrapper.appendChild(this._canvas)
     }
 
@@ -227,11 +221,9 @@ function _sortWorldCloud(option) {
 }
 
 function _renderShape(option) {
-    console.log(option, this, 'option');
 
     if (this._maskCanvas) {
         option.clearCanvas = false
-        console.log('this._maskCanvas', this._maskCanvas);
 
         /* Determine bgPixel by creating
          another canvas and fill the specified background color. */
@@ -270,7 +262,6 @@ function _renderShape(option) {
 
         ctx = this._canvas.getContext('2d')
         ctx.clearRect(0, 0, this._canvas.width, this._canvas.height)
-        console.log(maskCanvasScaled, 'maskCanvasScaled');
 
         ctx.drawImage(maskCanvasScaled, 0, 0);
     }
@@ -299,11 +290,11 @@ function _renderShape(option) {
      * 添加人形 背景
      * 
     */
-    console.log(this._canvas, option, 'this._canvas 大概166');
     // var bctx = this._canvas.getContext('2d');
     var bctx = setupCanvas(this._canvas);
     if (option.isShowBackShape) {
-        var dpr = window.devicePixelRatio || 1;
+        // var dpr = window.devicePixelRatio || 1;
+        var dpr = 2;
         var cw = this._canvas.width / dpr;
         var ch = this._canvas.height / dpr;
         var img = new Image();
@@ -311,8 +302,7 @@ function _renderShape(option) {
         img.onload = function () {
             bctx.drawImage(img, 0, 0, cw, ch);
         }
-        console.log(option.imageShape, ' options.imageShape');
-        img.src = option.imageShapeColor ||  option.imageShape;
+        img.src = option.imageShapeColor || option.imageShape;
     }
 
 }
@@ -320,16 +310,16 @@ function _renderShape(option) {
 // 添加比例 解决 文字模糊
 function setupCanvas(canvas) {
     // Get the device pixel ratio, falling back to 1.
-    var dpr = window.devicePixelRatio || 1;
+    // var dpr = window.devicePixelRatio || 1;
+    var dpr = 2;
+
     // Get the size of the canvas in CSS pixels.
     var rect = canvas.getBoundingClientRect();
     // Give the canvas pixel dimensions of their CSS
     // size * the device pixel ratio.
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.width = rect.width * 2;
+    canvas.height = rect.height * 2;
     var ctx = canvas.getContext('2d');
-    console.log(dpr, 'dpr');
-
     // Scale all drawing operations by the dpr, so you
     // don't have to worry about the difference.
     ctx.scale(dpr, dpr);
@@ -383,7 +373,6 @@ function _imageShape(option) {
         this._maskCanvas = window.document.createElement('canvas')
         this._maskCanvas.width = img.width
         this._maskCanvas.height = img.height
-        console.log(img, img.width, img.height, 'img');
         var ctx = this._maskCanvas.getContext('2d')
         // ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 100, 100);
         ctx.drawImage(img, 0, 0, img.width, img.height)
@@ -420,7 +409,6 @@ function _imageShape(option) {
     img.onerror = function () {
         _renderShape.call(this, option);
     };
-    console.log(option.imageShape, ' main -> option.imageShape');
     img.src = option.imageShape;
 }
 
