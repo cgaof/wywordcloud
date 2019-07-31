@@ -21,8 +21,8 @@ npm install wywordcloud --save
  ```
 
 ```javascript
-import Wywordcloud from 'wywordcloud';
-var wc = new Wywordcloud(document.getElementById('container'))
+import wywordcloud from 'wywordcloud';
+var wc = new wywordcloud(document.getElementById('container'))
 wc.setOption({
     tooltip: {
         show: true

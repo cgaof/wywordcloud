@@ -7,7 +7,7 @@ const LODAING_WRAPPTER_HTML_PRE = '<div class="__wc_loading_wrapper__">' +
     '<div class="__wc_loading_wrapper_item_inner__">'
 const LODAING_WRAPPTER_HTML_END = '</div></div></div>'
 
-export default class Wywordcloud {
+export default class wywordcloud {
     constructor(element) {
         this._container = element
         this._wrapper = null
@@ -412,4 +412,4 @@ function _imageShape(option) {
     img.src = option.imageShape;
 }
 
-// exports default Js2WordCloud
+// module.exports = wywordcloud
