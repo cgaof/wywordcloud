@@ -1,11 +1,9 @@
 const path = require('path')
 const config = {
-    entry: './src/main.js',
+    entry:'./src/main.js',
     output: {
         filename: 'wywordcloud.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'wywordcloud',
-        libraryTarget: 'umd'
     },
     module: {
         rules: [

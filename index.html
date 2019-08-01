@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./dist/wywordcloud.min.js"></script>
+  <style>
+    #container {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #ccc;
+      zoom: 0.5;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div id="container"></div>
+  <script>
+    window.onload = function () {
+      let arr = [];
+      for (var i = 0; i < 100; i++) {
+        arr[i] = [i, i];
+      }
+      var option = {
+        list: arr, // 数据
+        ellipticity: 1,
+        ratationSteps: 1,
+        rotationRation: 0.6,
+        rotateRatio: 0.9,
+        fontSizeFactor: 20, // 当词云值相差太大，可设置此值进字体行大小微调，默认0.1
+        maxFontSize: 20, // 最大fontSize，用来控制weightFactor，默认60
+        minFontSize: 8,
+        gridSize: 0.1,
+        shuffle: 3,
+        isShowBackShape: true // 显示背景图形
+      };
+      var wc = new wywordcloud(document.getElementById("container"));
+      wc.setOption(option);
+    }
+  </script>
+</body>
+
+</html>

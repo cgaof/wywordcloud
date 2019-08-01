@@ -11,9 +11,10 @@
     "dev": "webpack --mode=development --watch --color"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.18.2",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
     "css-loader": "^3.1.0",
     "imports-loader": "^0.6.5",
     "style-loader": "^0.23.1",
@@ -21,5 +22,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/runtime": "^7.5.5"
+  }
 }

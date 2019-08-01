@@ -17,7 +17,7 @@ npm install wywordcloud --save
 
 ## Usage
  ```html
-  <div style="zoom:0.5" id="container"><div>
+  <div style="zoom:0.5" id="container"></div>
  ```
 
 ```javascript

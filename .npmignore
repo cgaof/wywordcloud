@@ -8,3 +8,5 @@ tslint.json
 tsconfig.json
 *.log
 .history
+webpack.config.js
+index.html
