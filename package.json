@@ -1,6 +1,6 @@
 {
   "name": "wywordcloud",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "wy word cloud dp",
   "main": "dist/wywordcloud.min.js",
   "author": "cgf",
