@@ -23,8 +23,5 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "@babel/runtime": "^7.5.5"
-  }
+  "dependencies": {}
 }
